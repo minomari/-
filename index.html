@@ -3,12 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Heart Bread</title>
+  <style>
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .image-row img {
+      max-width: 45%; /* 横に2つ並べられるように幅を調整 */
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 <body>
   <h1>Heart Bread へようこそ🍞</h1>
   <p>やさしい手づくりパンがいっぱい！</p>
-  <!-- 🖼 画像の追加（imgフォルダにbread.pngがある想定） -->
- <img src="IMG_6203.png" alt="おいしいパン1" style="max-width: 100%; height: auto;">
-  <img src="IMG_6204.png" alt="おいしいパン2" style="max-width: 100%; height: auto;">
+
+  <div class="image-row">
+    <img src="IMG_6203.png" alt="おいしいパン1">
+    <img src="IMG_6204.png" alt="おいしいパン2">
+  </div>
 </body>
 </html>
