@@ -7,6 +7,8 @@
     body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      overflow-x: hidden; /* 横スクロールの余白防止 */
       background-color: #fefefe;
       background-image: url('left-curtain.png'), url('right-curtain.png');
       background-position: left top, right top;
@@ -14,11 +16,14 @@
       background-size: auto 100%; /* 背景画像の高さ100%、横は自動 */
     }
 
-    .container {
-      max-width: 1800px; /* ★ここで横幅を広げる */
-      margin: 0 auto;
-      background-color: white;
-      padding: 20px;
+ .container {
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 0 10px;
+  box-sizing: border-box; /* paddingを含めて幅調整 */
+}
     }
 
     .image-row {
