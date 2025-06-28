@@ -4,26 +4,45 @@
   <meta charset="UTF-8">
   <title>Heart Bread</title>
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fefefe;
+      background-image: url('left-curtain.png'), url('right-curtain.png');
+      background-position: left top, right top;
+      background-repeat: no-repeat, no-repeat;
+      background-size: auto 100%;
+    }
+
+    .container {
+      max-width: 1000px; /* ★ここで横幅を広げる */
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+    }
+
     .image-row {
       display: flex;
       justify-content: center;
       gap: 20px;
     }
+
     .image-row img {
-      max-width: 45%; /* 横に2つ並べられるように幅を調整 */
+      max-width: 45%;
       height: auto;
       border-radius: 8px;
     }
   </style>
 </head>
 <body>
-  <h1>Heart Bread へようこそ🍞</h1>
-  <p>やさしい手づくりパンがいっぱい！</p>
+  <div class="container">
+    <h1>Heart Bread へようこそ🍞</h1>
+    <p>やさしい手づくりパンがいっぱい！</p>
 
-  <div class="image-row">
-    <img src="IMG_6206.jpeg" alt="おいしいパン1" style="transform: scaleX(-1);">
-
-    <img src="IMG_6206.jpeg" alt="おいしいパン2">
+    <div class="image-row">
+      <img src="IMG_6206.jpeg" alt="おいしいパン1" style="transform: scaleX(-1);">
+      <img src="IMG_6206.jpeg" alt="おいしいパン2">
+    </div>
   </div>
 </body>
 </html>
