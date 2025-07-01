@@ -8,28 +8,32 @@
       margin: 0;
       padding: 0;
       width: 100%;
-      overflow-x: hidden; /* 横スクロールの余白防止 */
+      overflow-x: hidden; /* 横スクロール防止 */
       background-color: #fefefe;
       background-image: url('left-curtain.png'), url('right-curtain.png');
       background-position: left top, right top;
       background-repeat: no-repeat, no-repeat;
-      background-size: auto 100%; /* 背景画像の高さ100%、横は自動 */
+      background-size: auto 100%;
     }
 
- .container {
-  width: 100%;
-  max-width: 1800px;
-  margin: 0 auto;
-  background-color: white;
-  padding: 0 10px;
-  box-sizing: border-box; /* paddingを含めて幅調整 */
-}
+    .container {
+      width: 100%;
+      max-width: 1800px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 0 10px;
+      box-sizing: border-box;
+      position: relative; /* 背景画像との重なり調整に必要 */
+      z-index: 1;
     }
 
     .image-row {
       display: flex;
       justify-content: center;
       gap: 20px;
+      margin-top: 20px;
+      z-index: 10;
+      position: relative; /* カーテンより前に出す */
     }
 
     .image-row img {
@@ -45,7 +49,6 @@
     <p>やさしい手づくりパンがいっぱい！</p>
 
     <div class="image-row">
-　　　　<img src="IMG_6205.jpeg" alt="のれん">
       <img src="IMG_6206.jpeg" alt="おいしいパン1" style="transform: scaleX(-1);">
       <img src="IMG_6206.jpeg" alt="おいしいパン2">
     </div>
