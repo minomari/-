@@ -1,39 +1,36 @@
-<style>
-body {
-  background-image: url('left-curtain.png'), url('right-curtain.png');
-  background-position: left top, right top;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>夢ガチャポン 絵本</title>
+  <style>
+    body { margin: 0; text-align: center; background: #fefefe; }
+    img { width: 100%; max-width: 800px; }
+    .nav { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <img id="storyImage" src="page1.png" alt="絵本1ページ目">
+  <div class="nav">
+    <button onclick="prev()">← まえ</button>
+    <button onclick="next()">つぎ →</button>
+  </div>
 
-.image-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  position: relative; /* 前面に出すため */
-  z-index: 10;
-}
-
-.image-row img {
-  max-width: 30%;
-  height: auto;
-  border-radius: 8px;
-}
-
-@media (max-width: 768px) {
-  .image-row {
-    flex-direction: column;
-    align-items: center;
-  }
-  .image-row img {
-    max-width: 80%;
-    margin-bottom: 10px;
-  }
-}
-</style>
-
-<div class="image-row">
-  <img src="IMG_6206.jpeg" alt="パン1" style="transform: scaleX(-1);">
-  <img src="IMG_6206.jpeg" alt="パン2">
-  <img src="IMG_6205.png" alt="パン3">
-</div>
+  <script>
+    const pages = ['page1.png', 'page2.png', 'page3.png', 'page4.png'];
+    let current = 0;
+    function next() {
+      if (current < pages.length - 1) {
+        current++;
+        document.getElementById('storyImage').src = pages[current];
+      }
+    }
+    function prev() {
+      if (current > 0) {
+        current--;
+        document.getElementById('storyImage').src = pages[current];
+      }
+    }
+  </script>
+</body>
+</html>
