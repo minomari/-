@@ -1,36 +1,71 @@
-<!DOCTYPE html>
+　<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>夢ガチャポン 絵本</title>
   <style>
-    body { margin: 0; text-align: center; background: #fefefe; }
-    img { width: 100%; max-width: 800px; }
-    .nav { margin-top: 10px; }
+    body {
+      margin: 0;
+      text-align: center;
+      background: #fefefe;
+    }
+    img {
+      width: 100%;
+      max-width: 800px;
+    }
+    .nav {
+      margin-top: 10px;
+    }
+    audio {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
+
   <img id="storyImage" src="page1.png" alt="絵本1ページ目">
+  <br>
+  <audio id="storyAudio" controls>
+    <source src="page1.mp3" type="audio/mpeg">
+    音声が再生できません。
+  </audio>
+
   <div class="nav">
     <button onclick="prev()">← まえ</button>
     <button onclick="next()">つぎ →</button>
   </div>
 
   <script>
-    const pages = ['page1.png', 'page2.png', 'page3.png', 'page4.png'];
+    const pages = [
+      { image: "page1.png", audio: "page1.mp3" },
+      { image: "page2.png", audio: "page2.mp3" },
+      { image: "page3.png", audio: "page3.mp3" },
+      { image: "page4.png", audio: "page4.mp3" }
+    ];
+
     let current = 0;
+
+    function updatePage() {
+      document.getElementById("storyImage").src = pages[current].image;
+      const audio = document.getElementById("storyAudio");
+      audio.src = pages[current].audio;
+      audio.load();  // これで新しい音声が読み込まれる
+    }
+
     function next() {
       if (current < pages.length - 1) {
         current++;
-        document.getElementById('storyImage').src = pages[current];
+        updatePage();
       }
     }
+
     function prev() {
       if (current > 0) {
         current--;
-        document.getElementById('storyImage').src = pages[current];
+        updatePage();
       }
     }
   </script>
+
 </body>
 </html>
